@@ -1,6 +1,16 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+" Setup NeoBundle settings
+let g:neobundle#enable_tail_path = 1
+let g:neobundle#types#git#default_protocol = 'git'
+let g:neobundle#install_process_timeout = 480
+
+" Install the bundles after we have installed neo bundle
+let s:install_neo_bundles = 0
+
+let s:neobundle_dir = expand('~/.vim/bundle')
+
 if has('vim_starting')
   set nocompatible               " Be iMproved
 
