@@ -4,8 +4,24 @@ set encoding=utf-8
 if has('vim_starting')
   set nocompatible               " Be iMproved
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+
+  " Clone and or Load NeoBundle
+  if isdirectory('neobundle.vim')
+    set runtimepath^=neobundle.vim
+  elseif finddir('neobundle.vim', '.;') != ''
+    execute 'set runtimepath^=' . finddir('neobundle.vim', '.;')
+  elseif &runtimepath !~ '/neobundle.vim'
+    if !isdirectory(s:neobundle_dir.'/neobundle.vim')
+      execute printf('!git clone %s://github.com/Shougo/neobundle.vim.git',
+                  \ (exists('$http_proxy') ? 'https' : 'git'))
+                  \ s:neobundle_dir.'/neobundle.vim'
+      let s:install_neo_bundles = 1
+    endif
+
+    execute 'set runtimepath^=' . s:neobundle_dir.'/neobundle.vim'
+  endif
+
 endif
 
 " Required:
