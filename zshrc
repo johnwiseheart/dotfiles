@@ -84,11 +84,6 @@ alias subl='vim'
 
 bindkey -v
 
-if [[ $(uname) == "Darwin" ]] ; then
-  alias vim='mvim -v'
-  alias nano='mvim -v'
-fi
-
 if [[ $(hostname) == "Maxwell.local" || $(hostname) == "vps.johnwiseheart.me" ]]; then
   export WORKON_HOME=$HOME/.virtualenvs
   export PROJECT_HOME=$HOME/github
@@ -104,7 +99,6 @@ export MAKESYSPATH=/Users/john/Documents/uni/cs3231/os161-osx/share/mk/
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /Users/john/.iterm2_shell_integration.zsh
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -118,4 +112,10 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-OSXey -c
+# Some stuff should only happen on my personal computer:
+if [[ $(uname) == "Darwin" ]] ; then
+  alias vim='mvim -v'
+  alias nano='mvim -v'
+  source /Users/john/.iterm2_shell_integration.zsh
+  OSXey -c
+fi
