@@ -1,5 +1,5 @@
 # Path to your oh-my-fish.
-set fish_path $HOME/.oh-my-fish
+set fish_path $HOME/.dotfiles/oh-my-fish
 set -U fish_key_bindings fish_vi_key_bindings
 
 # Theme
