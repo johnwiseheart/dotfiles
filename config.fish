@@ -1,6 +1,6 @@
 # Path to your oh-my-fish.
 set fish_path $HOME/.dotfiles/oh-my-fish
-
+set -gx  LC_ALL en_US.UTF-8
 # Theme
 set fish_theme bobthefish
 
