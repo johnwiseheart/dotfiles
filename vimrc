@@ -229,7 +229,7 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-set shell=zsh
+set shell=fish
 set clipboard=unnamed
 
 "let $XIKI_DIR = "/Users/john/xiki"

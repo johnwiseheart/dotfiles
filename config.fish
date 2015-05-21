@@ -63,8 +63,10 @@ set -x TERM xterm-256color
 
 
 if test -n "$DISPLAY"
-  if test -z "$TMUX"
-    tmux attach; or tmux new
+  if test -z "$VIM"
+    if test -z "$TMUX"
+      tmux attach; or tmux new
+    end
   end
 end
 
